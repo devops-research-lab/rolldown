@@ -69,6 +69,8 @@ fn recovered_module_def_format(id: &str, scopes: &PackageScopes) -> ModuleDefFor
 /// A `resolveId` hook may return a bare id string, which carries no `packageJsonPath`. This
 /// function then recovers the manifests from the id. Otherwise a module's
 /// `package.json#sideEffects` policy and its module format would depend on the specifier.
+/// See `internal-docs/module-side-effects/design.md` and
+/// <https://github.com/rolldown/rolldown/issues/10909>.
 /// See <https://github.com/rolldown/rolldown/issues/10909>.
 fn resolved_id_from_hook_output<Fs: FileSystem>(
   resolver: &Resolver<Fs>,
